@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: prom-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+#  - host: prom.xn--w8je.xn--tckwe
+#    http:
+#      paths:
+#      - path: /
+#        pathType: Prefix
+#        backend:
+#          service:
+#            name: prometheus-server
+#            port:
+#              number: 80
+  - host: grafana.xn--w8je.xn--tckwe
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: grafana
+            port:
+              number: 80
